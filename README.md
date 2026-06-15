@@ -36,6 +36,6 @@ A relational database project for managing football fans, matches, and ticket bo
 
 ---
 
-> 🙏 *Thanks for checking out my work! This project was developed with strict adherence to relational database normalization principles, PostgreSQL best practices, and clean schema architecture. Every constraint, relationship, and query was carefully designed to reflect real-world booking system logic.*
+> 🙏 *Thanks for checking out my work! Every table, constraint, and query was built to reflect real world booking logic.*
 
 <p align="center">⚽ Built with PostgreSQL · Lucidchart · Beekeeper Studio · Git</p>
