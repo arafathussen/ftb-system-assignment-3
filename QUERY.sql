@@ -167,3 +167,11 @@ SELECT
     b.booking_id
 FROM Users u
 LEFT JOIN Bookings b ON u.user_id = b.user_id;
+
+
+
+-- Query 6: Above Average Cost Bookings
+
+SELECT booking_id, match_id, total_cost
+FROM Bookings
+WHERE total_cost > (SELECT AVG(total_cost) FROM Bookings);
