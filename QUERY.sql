@@ -50,3 +50,31 @@ CREATE TABLE Matches (
     -- Match status restricted to only these four allowed values
     CONSTRAINT matches_status_check CHECK (match_status IN ('Available', 'Selling Fast', 'Sold Out', 'Postponed'))
 );
+
+-- =========================================================================
+-- 3. CREATE BOOKINGS TABLE
+-- =========================================================================
+
+CREATE TABLE Bookings (
+    booking_id     INT,
+    user_id        INT,
+    match_id       INT,
+    seat_number    VARCHAR(10),
+    payment_status VARCHAR(20),
+    total_cost     NUMERIC(10, 2),
+
+    -- Primary Key constraint on booking_id
+    CONSTRAINT bookings_pk PRIMARY KEY (booking_id),
+
+    -- Foreign Key linking to Users table
+    CONSTRAINT bookings_user_fk FOREIGN KEY (user_id) REFERENCES Users (user_id),
+
+    -- Foreign Key linking to Matches table
+    CONSTRAINT bookings_match_fk FOREIGN KEY (match_id) REFERENCES Matches (match_id),
+
+    -- Total cost cannot be negative
+    CONSTRAINT bookings_cost_check CHECK (total_cost >= 0),
+
+    -- Payment status restricted to only these four allowed values
+    CONSTRAINT bookings_status_check CHECK (payment_status IN ('Pending', 'Confirmed', 'Cancelled', 'Refunded'))
+);
